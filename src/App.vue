@@ -1,17 +1,46 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <SearchControls @search="search"/>
+    <Gallery :galleryData="galleryData"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import api from './api.js'
+
+import Gallery from './components/Gallery.vue';
+import SearchControls from './components/SearchControls.vue';
+
+const defaultParams = {
+  section: 'user', sort: 'hot', resultWindow: 'week', viral: 'false'
+}
 
 export default {
   name: 'app',
   components: {
-    HelloWorld,
+    Gallery,
+    SearchControls,
+  },
+  data() {
+    return {
+      galleryData: []
+    }
+  },
+
+  methods: {
+    async search(params) {
+      try {
+        this.galleryData = (await api(params)).data.filter((item) => item.is_album)
+        console.log(this.galleryData)
+      } catch (e) {
+        console.log(e)
+      }
+    }
+  },
+
+  async created() {
+    this.search(defaultParams)
   },
 };
 </script>

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1> Imgur Gallery </h1>
     <div class="loadingContainer" v-if="loading">
       <img class="loadingContainer_img" src="../assets/loading.gif" />
     </div>
@@ -183,7 +184,7 @@ export default {
 }
 
 .thumbGrid {
-  padding-top: 100px;
+  padding-top: 50px;
   display: grid;
   position: relative;
   min-height: 100vh;

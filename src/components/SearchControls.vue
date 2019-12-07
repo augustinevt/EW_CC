@@ -6,6 +6,7 @@
       }"
     >
       <button
+        aria-label="toggle search menu"
         tabindex="0"
         :class="{
           'searchBar__searchBtn': true,
@@ -40,9 +41,9 @@
         />
         <input
           type="button"
-          :class="{active: section === 'viral', 'searchBar__paramBtn': true}"
+          :class="{active: section === 'hot', 'searchBar__paramBtn': true}"
           @click="changeSection"
-          value="viral"
+          value="hot"
         />
       </fieldset>
 

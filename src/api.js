@@ -2,7 +2,7 @@ export default async ({
   section, sort, resultWindow, viral,
 }) => {
   const res = await fetch(
-    `https://api.imgur.com/3/gallery/${section}/${sort}/${resultWindow}/?showViral=${viral}`,
+    `http://localhost:3000?section=${section}&sort=${sort}&resultWindow=${resultWindow}&viral=${viral}`,
     {
       headers: new Headers(
         {

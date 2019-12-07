@@ -12,7 +12,7 @@ Thanks again,
 
 A few notes:
 
-  1. A imgur `client_id` is required to make allow the ExpressJS proxy-server to make authorized calls. I would be happy to share mine with you, but due force of habit I did not include them on Github.
+  1. A imgur `client_id` is required to make allow the ExpressJS proxy-server to make authorized calls. Just add a `.env` file with a `IMGUR_CLIENT` variable. I would be happy to share mine with you, but due force of habit I did not include them on Github.
 
   2. If time allowed, I would probably have set up some tests with cypress and jest at critical points of the app functionality
 
@@ -28,12 +28,15 @@ $ git clone https://github.com/augustinevt/EW_CC.git
 $ yarn install
 ```
 
+add IMGUR_CLIENT to `.env`
+
 run the expressJS proxy
+
 ```
 $ yarn run serve-proxy
 ```
 
-run the client developement server 
+run the client developement server
 ```
 $ yarn serve
 ```

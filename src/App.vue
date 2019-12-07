@@ -1,8 +1,7 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
     <SearchControls @search="search"/>
-    <Gallery :galleryData="galleryData"/>
+    <Gallery :loading="loading" :galleryData="galleryData"/>
   </div>
 </template>
 
@@ -24,15 +23,17 @@ export default {
   },
   data() {
     return {
-      galleryData: []
+      galleryData: [],
+      loading: false
     }
   },
 
   methods: {
     async search(params) {
       try {
+        this.loading = true
         this.galleryData = (await api(params)).data.filter((item) => item.is_album)
-        console.log(this.galleryData)
+        this.loading = false
       } catch (e) {
         console.log(e)
       }
@@ -52,6 +53,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  position: relative;
 }
 </style>

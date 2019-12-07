@@ -6,13 +6,12 @@
 </template>
 
 <script>
-import api from './api.js'
-
-import Gallery from './components/Gallery.vue';
-import SearchControls from './components/SearchControls.vue';
+import api from './api'
+import Gallery from './components/Gallery.vue'
+import SearchControls from './components/SearchControls.vue'
 
 const defaultParams = {
-  section: 'user', sort: 'hot', resultWindow: 'week', viral: 'false'
+  section: 'user', sort: 'hot', resultWindow: 'week', viral: 'false',
 }
 
 export default {
@@ -24,7 +23,7 @@ export default {
   data() {
     return {
       galleryData: [],
-      loading: false
+      loading: false,
     }
   },
 
@@ -32,12 +31,12 @@ export default {
     async search(params) {
       try {
         this.loading = true
-        this.galleryData = (await api(params)).data.filter((item) => item.is_album)
+        this.galleryData = (await api(params)).data.filter(item => item.is_album)
         this.loading = false
       } catch (e) {
         console.log(e)
       }
-    }
+    },
   },
 
   async created() {

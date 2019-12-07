@@ -16,8 +16,6 @@ A few notes:
 
   2. If time allowed, I would probably have set up some tests with cypress and jest at critical points of the app functionality
 
-  3. While the app certainly did not require a global state manager, I added a small demonstration of of one in the git branch `add_a_state_manager` please feel free to check that out as well.
-
 ## How to get started
 
 ```

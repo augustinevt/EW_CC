@@ -48,7 +48,7 @@
           </div>
         </div>
       </div>
-      <div class="thumb" v-for="(item) in galleryData" :key="item.id" @click="toggleModal(item)">
+      <div class="thumb" v-for="(item) in gallery" :key="item.id" @click="toggleModal(item)">
         <div class="thumb_img">
           <img :src="item.images[0].link.slice(0,-4) + 's.' + item.images[0].link.slice(-3)" />
         </div>
@@ -61,20 +61,18 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   name: 'Gallery',
-  props: {
-    galleryData: Array,
-    loading: Boolean,
-  },
+  computed: mapState({
+    gallery: state => state.gallery,
+    loading: state => state.galleryLoading,
+  }),
   data() {
     return {
       activeItem: null,
       showModal: false,
-      section: 'top',
-      sort: 'viral',
-      resultWindow: 'week',
-      viral: 'true',
     }
   },
   methods: {

@@ -201,6 +201,8 @@ export default {
 .searchBar__paramBtn {
   margin: 10px;
   border: 1px solid grey;
+  background: white;
+  outline: none;
 }
 
 .searchBar__searchIcon {

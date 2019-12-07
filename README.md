@@ -21,17 +21,19 @@ A few notes:
 ## How to get started
 
 ```
-$ git clone
+$ git clone https://github.com/augustinevt/EW_CC.git
 ```
 
 ```
 $ yarn install
 ```
 
+run the expressJS proxy
 ```
 $ yarn run serve-proxy
 ```
 
+run the client developement server 
 ```
 $ yarn serve
 ```
